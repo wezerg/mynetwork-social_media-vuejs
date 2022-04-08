@@ -7,17 +7,22 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto">
+                    <ul class="navbar-nav" v-if="auth.authentified">
                         <li class="nav-item">
                             <RouterLink class="nav-link" to="/profil">Profil</RouterLink>
                         </li>
                     </ul>
-                    <ul class="navbar-nav d-flex">
+                    <ul class="navbar-nav d-flex ms-auto" v-if="auth.authentified">
+                        <li class="nav-item ms-lg-3">
+                            <button class="btn btn-danger" v-on:click="setAuth(null, false)">Déconnexion</button>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav d-flex ms-auto" v-else>
                         <li class="nav-item">
-                            <RouterLink class="nav-link btn btn-outline-success" to="/login">Login</RouterLink>
+                            <RouterLink class="nav-link btn btn-success text-white" to="/login">Login</RouterLink>
                         </li>
                         <li class="nav-item ms-lg-3">
-                            <RouterLink class="nav-link btn btn-outline-danger" to="/register">Register</RouterLink>
+                            <RouterLink class="nav-link btn btn-warning text-white" to="/register">Register</RouterLink>
                         </li>
                     </ul>
                 </div>
@@ -26,7 +31,13 @@
   </header>
 </template>
 
-<script setup>
+<script>
 import { RouterLink } from 'vue-router';
 
+export default {
+    props: ["auth", "setAuth"],
+    setup(props, context){
+
+    }
+}
 </script>

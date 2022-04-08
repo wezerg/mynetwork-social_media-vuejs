@@ -1,0 +1,3 @@
+<template>
+    Hello profil
+</template>

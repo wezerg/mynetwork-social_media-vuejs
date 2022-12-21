@@ -1,4 +1,6 @@
-# mynetworkvue
+# MyNetwork Vue
+
+Projet de réseaux sociaux web développé avec VueJS. La base de données est hébergé dans un *json-server*
 
 # Run with JSON-server on port 3001
 
